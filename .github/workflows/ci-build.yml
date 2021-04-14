@@ -33,6 +33,7 @@ jobs:
       - name: setup
         run: |
           mkdir -p site-dir
+          which python
           pip3 install --target=site-dir -r requirements.txt
       - name: redhat-codeready-dependency-analysis
         uses: fabric8-analytics/gh-actions@main
