@@ -30,11 +30,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Python 3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
       - name: setup
         run: |
           mkdir -p site-dir
           which python
-          pip3 install --target=site-dir -r requirements.txt
+          python --version
+          pip3 install --target=site-dir -r requirements.txt --upgrade
       - name: redhat-codeready-dependency-analysis
         uses: fabric8-analytics/gh-actions@main
         with:
